@@ -1,2 +1,3 @@
-vscode
+.vscode
 *.exe
+temp.cpp
