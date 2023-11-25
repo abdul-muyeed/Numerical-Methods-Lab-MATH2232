@@ -3,13 +3,14 @@ using namespace std;
 #define EPSILON 0.01
 
 // class for Bisection Method
-class Bisection
+class Falsi
 {
     // equation is x^3 - x^2 + 5
     public:
         double func(double x) {
-        return x*x*x - x*2 - 6;
-    }
+            int a = 1, b = -2, c = -6, d = 0;
+            return a*x*x*x + b*x*x + c*x + d;
+        }
     public:
         int random(){
             int lb = -100;
@@ -19,7 +20,7 @@ class Bisection
         }
     // Prints root of func(x) with error of EPSILON
     public:
-    void bisection(double a, double b) {
+    void falsi(double a, double b) {
         double x=a,prev_x=INT_MAX;
         while ((b - a) >= EPSILON) {
             x = (a*func(b) - b*func(a)) / (func(b) - func(a));
@@ -47,7 +48,7 @@ class Bisection
 
 int main()
 {
-    Bisection solver;
+    Falsi solver;
     // func(a) is nagative and func(b) is positive
     int a = solver.random() ,b = solver.random();
         
@@ -66,7 +67,7 @@ int main()
     // cout<< "f(a) = "<< solver.func(a) << " f(b) = "<< solver.func(b) <<endl;
         
            
-            solver.bisection(a, b);
+            solver.falsi(a, b);
          
     
    

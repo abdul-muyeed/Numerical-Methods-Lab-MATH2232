@@ -8,8 +8,9 @@ class Bisection
     // equation is x^3 - x^2 + 5
     public:
         double func(double x) {
-       return x*x*x - x*2 - 6;
-    }
+            int a = 1, b = -2, c = -6, d = 0;
+            return a*x*x*x + b*x*x + c*x + d;
+        }
     public:
         int random(){
             int lb = -10000;
