@@ -22,7 +22,7 @@ class Falsi
     public:
     void falsi(double a, double b) {
         double x=a,prev_x=INT_MAX;
-        while ((b - a) >= EPSILON) {
+        while (abs(b - a) >= EPSILON) {
             x = (a*func(b) - b*func(a)) / (func(b) - func(a));
             //  cout << "a = " << a << " b = " << b<< " f(a) = "<<func(a) << " f(b)= "<<func(b) <<" ";
 			//  cout<<"x = "<<x<<" f(x)="<<func(x)<<endl;
@@ -47,7 +47,8 @@ class Falsi
 
 
 int main()
-{
+{   
+    srand(time(0));
     Falsi solver;
     // func(a) is nagative and func(b) is positive
     int a = solver.random() ,b = solver.random();

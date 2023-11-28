@@ -8,13 +8,13 @@ class Bisection
     // equation is x^3 - x^2 + 5
     public:
         double func(double x) {
-            int a = 1, b = -2, c = -6, d = 0;
+            int a = 1, b = 0, c = -2, d = -5;
             return a*x*x*x + b*x*x + c*x + d;
         }
     public:
         int random(){
-            int lb = -10000;
-            int ub =  10000;
+            int lb = -100;
+            int ub =  100;
             int a = (rand() % (ub - lb + 1)) + lb;
             return a;
         }
@@ -22,10 +22,10 @@ class Bisection
     public:
     void bisection(double a, double b) {
         double x=a;
-        while ((b - a) >= EPSILON) {
+        while (abs(b - a) >= EPSILON) {
+             x = (a + b) / 2;
             // cout << "a = " << a << " b = " << b<< " f(a) = "<<func(a) << " f(b)= "<<func(b) << endl;
-            x = (a + b) / 2;
-			// cout<<"x = "<<c<<" f(x)="<<func(x)<<endl;
+			// cout<<"x = "<<x<<" f(x)="<<func(x)<<endl;
             if (func(x) == 0.0)
                 break;
             else if (func(x)*func(a)< 0)
@@ -42,9 +42,11 @@ class Bisection
 
 int main()
 {
+    srand(time(0));
     Bisection solver;
         // func(a) is nagative and func(b) is positive
          int a = solver.random() ,b = solver.random();
+         cout<< a << " "<< b <<endl;
         
         
         while (solver.func(a)>0)
