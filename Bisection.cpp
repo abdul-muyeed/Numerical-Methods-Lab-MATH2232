@@ -5,11 +5,15 @@ using namespace std;
 // class for Bisection Method
 class Bisection
 {
-    // equation is x^3 - x^2 + 5
+    public:
+        int arr[4]={1,-2,1,7};
+        // equation is x^3 - x^2 + 5
+        // int range = sqrt(abs((arr[1]/arr[0])*(arr[1]/arr[0])-2*(arr[2]/arr[0]))) + 1;
+    
     public:
         double func(double x) {
-            int a = 1, b = 0, c = -2, d = -5;
-            return a*x*x*x + b*x*x + c*x + d;
+            
+            return arr[0]*x*x + arr[1]*x + arr[2];
         }
     public:
         int random(){
@@ -46,18 +50,24 @@ int main()
     Bisection solver;
         // func(a) is nagative and func(b) is positive
          int a = solver.random() ,b = solver.random();
-         cout<< a << " "<< b <<endl;
+         int t1=1000,t2=1000;
+        //  cout<< a << " "<< b <<endl;
         
-        
-        while (solver.func(a)>0)
+
+         // finding vulue of a such that f(a) is negative
+        while (solver.func(a)>=0 && --t1)
         {
             a = solver.random();
         }
 
-        // finding vulue of b such that f(b) is negative
-        while (solver.func(b)<0)
+        // finding vulue of b such that f(b) is positive
+        while (solver.func(b)<=0 && --t2)
         {
             b = solver.random();
+        }
+        if(solver.func(a)*solver.func(b) >=0){
+            cout<< "Bisection Method cant find the root of the equation. try chatgpt method"<<endl;
+            return 0;
         }
     
     
