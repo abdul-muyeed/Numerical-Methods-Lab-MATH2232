@@ -7,6 +7,7 @@ class Secant
 {
     public:
         int arr[4]={1,0,-5,1};
+
         // equation is x^3 - x^2 + 5
         // int range = sqrt(abs((arr[1]/arr[0])*(arr[1]/arr[0])-2*(arr[2]/arr[0]))) + 1;
     
@@ -50,24 +51,7 @@ int main()
     srand(time(0));
     Secant solver;
         // func(a) is nagative and func(b) is positive
-         int a = solver.random() ,b = solver.random();
-         int t1=1000,t2=1000;
-        //  cout<< a << " "<< b <<endl;
-        
-
-         // finding vulue of a such that f(a) is negative
-        
-            // a = 0;
-
-        // finding vulue of b such that f(b) is positive
-
-            // b = 1;
-
-        // if(solver.func(a)*solver.func(b) >=0){
-        //     cout<< "Bisection Method cant find the root of the equation. try chatgpt method"<<endl;
-        //     return 0;
-        // }
-    
+         int a = solver.random(), b = solver.random();
     
     cout << "You have assumed "<< a <<" and "<< b <<endl;
     // cout<< "f(a) = "<< solver.func(a) << " f(b) = "<< solver.func(b) <<endl;
