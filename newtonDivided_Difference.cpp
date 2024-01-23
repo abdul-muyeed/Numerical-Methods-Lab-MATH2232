@@ -15,15 +15,18 @@ class NewtonDividedDifference
             y1[i][0] = y[i];
         }
         for(int i=1;i<n;i++){
-            for(int j=n-1;j>=i;j--){
-                y1[j][i] = (y1[j][i - 1] - y1[j + 1][i - 1]) / (x[j] - x[i + j]);
-            }
+            for(int j=0;j<n-i;j++){
+                y1[j][i] = (y1[j+1][i-1] - y1[j][i-1])/(x[i+j]-x[j]);
+                cout<<y1[j][i]<<" ";
+            } cout<<endl;
         }
-        double sum = y1[n-1][0];
+        double sum = y1[0][0];
+        // cout<< sum<<endl;
         double p = 1;
         for(int i=1;i<n;i++){
             p = p*(xp-x[i-1]);
-            sum = sum + y1[n-1][i];
+            sum = sum + p*y1[0][i];
+            // cout<<y1[0][i]<<" "<<p<<endl;
         }
         cout<<sum<<endl;
 
@@ -33,7 +36,7 @@ class NewtonDividedDifference
        
 };
 
-// 2 14.5 3 16.3 4 17.5 5 18
+// 5 12 6 13 9 14 11 16
 
 int main()
 {   
