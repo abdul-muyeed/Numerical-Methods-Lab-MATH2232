@@ -6,14 +6,14 @@ using namespace std;
 class Bisection
 {
     public:
-        int arr[4]={1,-2,1,7};
+        int arr[4]={0,-2,1,7};
         // equation is x^3 - x^2 + 5
         // int range = sqrt(abs((arr[1]/arr[0])*(arr[1]/arr[0])-2*(arr[2]/arr[0]))) + 1;
     
     public:
         double func(double x) {
             
-            return arr[0]*x*x + arr[1]*x + arr[2];
+            return arr[0]*x*x*x + arr[1]*x*x + arr[2]*x+arr[3];
         }
     public:
         int random(){
