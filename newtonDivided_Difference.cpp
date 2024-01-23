@@ -3,29 +3,37 @@ using namespace std;
 #define EPSILON 0.01
 
 // class for Bisection Method
-class LagrangeInterpolation
+class NewtonDividedDifference
 {
     
     // Prints root of func(x) with error of EPSILON
     public:
-    void lagrangeInterpolation(double x[], double y[],int n, double xp) {
-        double sum = 0;
+    void newtonDividedDifference(double x[], double y[],int n, double xp) {
+
+        double y1[n][n];
         for(int i=0;i<n;i++){
-            double p = 1;
-            for(int j=0;j<n;j++){
-                if(i!=j){
-                    p = p*(xp-x[j])/(x[i]-x[j]);
-                }
+            y1[i][0] = y[i];
+        }
+        for(int i=1;i<n;i++){
+            for(int j=n-1;j>=i;j--){
+                y1[j][i] = (y1[j][i - 1] - y1[j + 1][i - 1]) / (x[j] - x[i + j]);
             }
-            sum = sum + p*y[i];
+        }
+        double sum = y1[n-1][0];
+        double p = 1;
+        for(int i=1;i<n;i++){
+            p = p*(xp-x[i-1]);
+            sum = sum + y1[n-1][i];
         }
         cout<<sum<<endl;
+
+       
         
     }
        
 };
 
-// 0 5 2 7 3 8 5 10 6 12
+// 2 14.5 3 16.3 4 17.5 5 18
 
 int main()
 {   
@@ -42,9 +50,9 @@ int main()
     double xp;cin>>xp;
 
     
-    LagrangeInterpolation solver;
+    NewtonDividedDifference solver;
     // func(a) is nagative and func(b) is positive
-    solver.lagrangeInterpolation(x,y,n,xp);
+    solver.newtonDividedDifference(x,y,n,xp);
     
          
     

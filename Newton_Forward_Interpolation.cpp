@@ -5,7 +5,6 @@ using namespace std;
 // class for Bisection Method
 class NewtonForwordInterpolation
 {
-    // equation is x^3 - x^2 + 5
     
     // Prints root of func(x) with error of EPSILON
     public:
