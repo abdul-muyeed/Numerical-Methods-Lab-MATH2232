@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define EPSILON 0.001
+#define EPSILON 0.0001
 
 // class for Bisection Method
 class NewtonRaphon
 {
     public:
-        int arr[4]={1,-1,0,5};
+        int arr[4]={1,4,0,-1};
         // equation is x^3 - x^2 + 5
     
     public:
@@ -29,7 +29,8 @@ class NewtonRaphon
     public:
     void newtonRaphon(double a) {
         double x=func(a)/funcdd(a);
-        while (abs(x) > EPSILON) {
+        while (abs(x) >= EPSILON) {
+            cout<<x<<endl;
              a = a-x;
             if (func(x) == 0.0)
                 break;
