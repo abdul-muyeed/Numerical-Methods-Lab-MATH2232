@@ -52,6 +52,25 @@ int main()
     Secant solver;
         // func(a) is nagative and func(b) is positive
          int a = solver.random(), b = solver.random();
+         int t1=1000,t2=1000;
+        //  cout<< a << " "<< b <<endl;
+        
+
+         // finding vulue of a such that f(a) is negative
+        while (solver.func(a)>=0 && --t1)
+        {
+            a = solver.random();
+        }
+
+        // finding vulue of b such that f(b) is positive
+        while (solver.func(b)<=0 && --t2)
+        {
+            b = solver.random();
+        }
+        if(solver.func(a)*solver.func(b) >=0){
+            cout<< "Bisection Method cant find the root of the equation. try chatgpt method"<<endl;
+            return 0;
+        }
     
     cout << "You have assumed "<< a <<" and "<< b <<endl;
     // cout<< "f(a) = "<< solver.func(a) << " f(b) = "<< solver.func(b) <<endl;

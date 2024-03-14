@@ -6,7 +6,7 @@ using namespace std;
 class NewtonRaphon
 {
     public:
-        int arr[4]={1,4,0,-1};
+        int arr[4]={1,0,-3,1};
         // equation is x^3 - x^2 + 5
     
     public:
@@ -29,8 +29,9 @@ class NewtonRaphon
     public:
     void newtonRaphon(double a) {
         double x=func(a)/funcdd(a);
+        
         while (abs(x) >= EPSILON) {
-            cout<<x<<endl;
+            cout<<x<<" | "<<func(a)<<" | "<<funcdd(a)<<endl;
              a = a-x;
             if (func(x) == 0.0)
                 break;
@@ -54,7 +55,8 @@ int main()
             // generating random value of a such that f(a) is zero
         while (solver.func(a)!=0 && --t1)
         {
-            a = solver.random();
+            // a = solver.random();
+            a=2;
         }
 
         
