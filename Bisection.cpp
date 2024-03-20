@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define EPSILON 0.01
+#define EPSILON 0.001
 
 class Bisection {
 public:
@@ -19,14 +19,18 @@ public:
 
     void bisection(double a, double b) {
         double x = a;
+        int i = 0;
         while (abs(b - a) >= EPSILON) {
             x = (a + b) / 2;
+            cout<< ++i <<". a="<<a<<" f(a)="<<func(a)<<" | b="<<b<<" f(b)="<<func(b)<<" | x="<<x<<" f(x)="<<func(x)<<endl;
             if (func(x) == 0.0)
                 break;
             else if (func(x) * func(a) < 0)
                 b = x;
             else
                 a = x;
+        
+        
         }
         cout << "The value of root is: " << x << endl;
     }
