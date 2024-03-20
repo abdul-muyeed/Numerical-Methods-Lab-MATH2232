@@ -23,14 +23,13 @@ public:
         while (abs(b - a) >= EPSILON) {
             x = (a + b) / 2;
             cout<< ++i <<". a="<<a<<" f(a)="<<func(a)<<" | b="<<b<<" f(b)="<<func(b)<<" | x="<<x<<" f(x)="<<func(x)<<endl;
-            if (func(x) == 0.0)
+            if (func(x) == 0.0){
                 break;
-            else if (func(x) * func(a) < 0)
+            }else if (func(x) * func(a) < 0){
                 b = x;
-            else
-                a = x;
-        
-        
+            }else{
+                 a = x;
+            }
         }
         cout << "The value of root is: " << x << endl;
     }
@@ -41,13 +40,17 @@ int main() {
     Bisection solver;
 
     int a = solver.random(), b = solver.random();
-    int t1 = 1000, t2 = 1000;
+    // int t1 = 1000, t2 = 1000;
 
-    while (solver.func(a) >= 0 && --t1)
+    while (solver.func(a) >= 0){
         a = solver.random();
+    }
+        
 
-    while (solver.func(b) <= 0 && --t2)
+    while (solver.func(b) <= 0){
         b = solver.random();
+    }
+        
 
     if (solver.func(a) * solver.func(b) >= 0) {
         cout << "Bisection Method can't find the root of the equation. Try another method." << endl;
