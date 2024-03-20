@@ -2,7 +2,6 @@
 using namespace std;
 #define EPSILON 0.01
 
-// class for Bisection Method
 class LeastSquare
 {
     // equation is x^3 - x^2 + 5

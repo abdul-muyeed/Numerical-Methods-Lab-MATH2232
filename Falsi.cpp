@@ -5,7 +5,7 @@ using namespace std;
 
 class Falsi {
 public:
-    int arr[4] = {0, 1, 0, 1};
+    int arr[4] = {1, 0, -2, -5};
 
     double func(double x) {
         return arr[0] * x * x * x + arr[1] * x * x + arr[2] * x + arr[3];
@@ -19,18 +19,21 @@ public:
 
     void falsi(double a, double b) {
         double x = a, prev_x = INT_MAX;
+        int i = 0;
         while (abs(b - a) >= EPSILON) {
             x = (a * func(b) - b * func(a)) / (func(b) - func(a));
-
-            if (func(x) == 0.0)
+            cout<< ++i <<". a="<<a<<" f(a)="<<func(a)<<" | b="<<b<<" f(b)="<<func(b)<<" | x="<<x<<" f(x)="<<func(x)<<endl;
+            if (func(x) == 0.0){
                 break;
-            else if (func(x) * func(a) < 0)
+            }else if (func(x) * func(a) < 0){
                 b = x;
-            else
+            }else{
                 a = x;
-
-            if (prev_x == x)
+            }
+            if (prev_x == x){
                 break;
+            }
+                
 
             prev_x = x;
         }
