@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define EPSILON 0.001
+#define EPSILON 0.01
 
 class Bisection {
 public:
