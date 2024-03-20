@@ -5,7 +5,7 @@ using namespace std;
 
 class Falsi {
 public:
-    int arr[4] = {1, 0, -2, -5};
+    int arr[4] = {0, 1, 0, -1};
 
     double func(double x) {
         return arr[0] * x * x * x + arr[1] * x * x + arr[2] * x + arr[3];

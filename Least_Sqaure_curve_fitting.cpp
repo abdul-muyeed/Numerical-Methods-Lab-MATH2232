@@ -4,9 +4,6 @@ using namespace std;
 
 class LeastSquare
 {
-    // equation is x^3 - x^2 + 5
-    
-    // Prints root of func(x) with error of EPSILON
     public:
     void leastSquare(double x[], double y[],int n) {
         double sum_x=0,sum_y=0,sum_xy=0,sum_x2=0,a,b;
@@ -16,10 +13,10 @@ class LeastSquare
             sum_xy+=x[i]*y[i];
             sum_x2+=x[i]*x[i];
         }
-        b=((double)n*sum_xy-sum_x*sum_y)/((double)n*sum_x2-sum_x*sum_x);
-        a=(sum_y-b*sum_x)/(double)n;
+        b=(n*sum_xy-sum_x*sum_y)/(n*sum_x2-sum_x*sum_x);
+        a=(sum_y-b*sum_x)/n;
 
-        cout << "The values are: " << a<<" "<< b << endl;
+        cout << "The values are: " << a <<" "<< b << endl;
         cout<< "The best straight line is : y = "<<a<<" + ("<<b<<")x"<<endl;
     }
        
